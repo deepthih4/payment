@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 
 <meta
   name="viewport"
-  content="width=device-width, initial-scale=1.0">
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>CEZOO Payment Admin</title>
 
@@ -32,611 +32,523 @@ body{
 }
 
 
-/* =========================
+/* ==============================
    HEADER
-========================= */
+============================== */
 
 .header{
+  height:70px;
+  padding:0 22px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
   background:#fff;
 
-  height:70px;
-
   border-bottom:1px solid #e9eaed;
 
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  padding:0 22px;
-
   position:sticky;
-
   top:0;
 
   z-index:20;
-
 }
-
 
 .brand{
-
   font-size:22px;
-
   font-weight:900;
-
   letter-spacing:.3px;
-
 }
 
-
 .headerRight{
-
   display:flex;
-
   align-items:center;
-
   gap:9px;
 
   font-size:12px;
-
   color:#777;
-
 }
 
-
 .onlineDot{
-
   width:8px;
-
   height:8px;
 
   border-radius:50%;
 
   background:#19a763;
-
 }
 
 
-/* =========================
+/* ==============================
    PAGE
-========================= */
+============================== */
 
 .container{
-
   width:100%;
-
-  max-width:900px;
+  max-width:1100px;
 
   margin:auto;
 
-  padding:25px 17px 40px;
-
+  padding:25px 17px 50px;
 }
-
 
 .pageTitle{
-
   font-size:25px;
-
   font-weight:850;
-
 }
-
 
 .pageSub{
-
-  margin-top:5px;
+  margin-top:6px;
 
   font-size:13px;
-
   color:#7b818a;
-
 }
 
 
-/* =========================
+/* ==============================
    SUMMARY
-========================= */
+============================== */
 
 .summary{
-
   display:grid;
 
   grid-template-columns:
     repeat(3,1fr);
 
-  gap:11px;
+  gap:14px;
 
-  margin-top:22px;
-
+  margin-top:27px;
 }
-
 
 .summaryCard{
+  min-height:104px;
 
-  background:#fff;
-
-  border:1px solid #ececef;
-
-  border-radius:16px;
-
-  padding:16px;
-
-}
-
-
-.summaryLabel{
-
-  font-size:11px;
-
-  color:#858b93;
-
-}
-
-
-.summaryValue{
-
-  margin-top:6px;
-
-  font-size:22px;
-
-  font-weight:850;
-
-}
-
-
-/* =========================
-   SECTION
-========================= */
-
-.section{
-
-  margin-top:25px;
-
-}
-
-
-.sectionTop{
+  padding:20px;
 
   display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  margin-bottom:13px;
-
-}
-
-
-.sectionTitle{
-
-  font-size:16px;
-
-  font-weight:800;
-
-}
-
-
-.refreshButton{
-
-  height:36px;
-
-  padding:0 13px;
-
-  border:1px solid #e5e7eb;
-
-  background:#fff;
-
-  border-radius:10px;
-
-  cursor:pointer;
-
-  font-size:12px;
-
-  font-weight:700;
-
-}
-
-
-/* =========================
-   ORDER CARD
-========================= */
-
-.orders{
-
-  display:flex;
-
   flex-direction:column;
-
-  gap:11px;
-
-}
-
-
-.orderCard{
+  justify-content:center;
 
   background:#fff;
 
   border:1px solid #e8e9ec;
 
-  border-radius:18px;
+  border-radius:20px;
+}
 
-  padding:17px;
+.summaryLabel{
+  font-size:12px;
+  color:#858b93;
+}
 
+.summaryValue{
+  margin-top:8px;
+
+  font-size:24px;
+  font-weight:900;
 }
 
 
-.orderTop{
+/* ==============================
+   SECTION
+============================== */
 
+.section{
+  margin-top:31px;
+}
+
+.sectionTop{
   display:flex;
-
-  align-items:flex-start;
-
+  align-items:center;
   justify-content:space-between;
 
   gap:15px;
 
+  margin-bottom:16px;
 }
 
+.sectionTitle{
+  font-size:17px;
+  font-weight:850;
+}
+
+.refreshButton{
+  height:42px;
+
+  padding:0 16px;
+
+  border:1px solid #e1e3e6;
+  border-radius:13px;
+
+  background:#fff;
+
+  color:#111827;
+
+  font-size:12px;
+  font-weight:750;
+
+  cursor:pointer;
+}
+
+.refreshButton:active{
+  transform:scale(.97);
+}
+
+.refreshButton:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+
+/* ==============================
+   ORDERS
+============================== */
+
+.orders{
+  display:flex;
+  flex-direction:column;
+
+  gap:14px;
+}
+
+
+/* ==============================
+   ORDER CARD
+============================== */
+
+.orderCard{
+  padding:20px;
+
+  background:#fff;
+
+  border:1px solid #e5e7eb;
+  border-radius:21px;
+}
+
+.orderTop{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+
+  gap:20px;
+}
 
 .orderId{
-
   font-size:13px;
-
-  font-weight:800;
-
-  word-break:break-all;
-
-}
-
-
-.orderTime{
-
-  margin-top:5px;
-
-  font-size:11px;
-
-  color:#90959d;
-
-}
-
-
-.amount{
-
-  font-size:20px;
-
   font-weight:850;
 
-  white-space:nowrap;
-
+  word-break:break-all;
 }
 
+.orderTime{
+  margin-top:7px;
+
+  font-size:11px;
+  color:#9297a0;
+}
+
+.amount{
+  flex-shrink:0;
+
+  font-size:21px;
+  font-weight:900;
+}
+
+
+/* ==============================
+   STATUS
+============================== */
 
 .status{
-
   display:inline-flex;
-
-  margin-top:13px;
-
-  padding:5px 9px;
-
-  border-radius:20px;
-
-  font-size:10px;
-
-  font-weight:800;
-
-}
-
-
-.statusPending{
-
-  background:#fff6df;
-
-  color:#a66a00;
-
-}
-
-
-.statusAccepted{
-
-  background:#e8f8ef;
-
-  color:#13874f;
-
-}
-
-
-.statusRejected{
-
-  background:#fff0f0;
-
-  color:#d83e45;
-
-}
-
-
-.actions{
-
-  display:flex;
-
-  gap:9px;
 
   margin-top:16px;
 
+  padding:6px 11px;
+
+  border-radius:50px;
+
+  font-size:10px;
+  font-weight:850;
 }
 
+.statusPending{
+  background:#fff4d7;
+  color:#9c6500;
+}
+
+.statusAccepted{
+  background:#e5f8ed;
+  color:#11844e;
+}
+
+.statusRejected{
+  background:#ffeded;
+  color:#d83e45;
+}
+
+
+/* ==============================
+   ACTION BUTTONS
+============================== */
+
+.actions{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:11px;
+
+  margin-top:19px;
+}
 
 .actionButton{
+  height:55px;
 
-  flex:1;
+  border-radius:15px;
 
-  height:45px;
-
-  border:0;
-
-  border-radius:12px;
-
-  font-size:13px;
-
-  font-weight:800;
+  font-size:14px;
+  font-weight:850;
 
   cursor:pointer;
-
 }
-
 
 .accept{
+  border:0;
 
-  background:#15945f;
-
+  background:#179b68;
   color:#fff;
-
 }
-
 
 .reject{
+  border:1px solid #efc7ca;
 
   background:#fff;
 
-  color:#d83e45;
-
-  border:1px solid #f0cfd1;
-
+  color:#e03e45;
 }
 
+.actionButton:active{
+  transform:scale(.985);
+}
 
 .actionButton:disabled{
-
   opacity:.45;
-
   cursor:not-allowed;
-
 }
 
 
-/* =========================
-   EMPTY
-========================= */
+/* ==============================
+   INITIAL LOADER
+============================== */
 
-.empty{
+.initialLoading{
+  padding:70px 20px;
 
   background:#fff;
 
-  border:1px solid #ececef;
-
-  border-radius:18px;
-
-  padding:45px 20px;
+  border:1px solid #e8e9ec;
+  border-radius:20px;
 
   text-align:center;
 
-}
-
-
-.emptyIcon{
-
-  font-size:35px;
-
-}
-
-
-.emptyTitle{
-
-  margin-top:12px;
-
-  font-size:16px;
-
-  font-weight:800;
-
-}
-
-
-.emptyText{
-
-  margin-top:5px;
-
-  font-size:12px;
-
-  color:#888;
-
-}
-
-
-/* =========================
-   LOADING
-========================= */
-
-.loading{
-
-  padding:45px;
-
-  text-align:center;
-
-  color:#777;
+  color:#7c828b;
 
   font-size:13px;
-
 }
 
+.loader{
+  width:31px;
+  height:31px;
 
-.smallLoader{
+  margin:0 auto 13px;
 
-  width:28px;
-
-  height:28px;
-
-  border:3px solid #eee;
-
-  border-top-color:#111;
+  border:3px solid #ececec;
+  border-top-color:#111827;
 
   border-radius:50%;
 
-  margin:0 auto 12px;
-
-  animation:spin .7s linear infinite;
-
+  animation:spin .75s linear infinite;
 }
 
-
 @keyframes spin{
-
   to{
     transform:rotate(360deg);
   }
-
 }
 
 
-/* =========================
-   MESSAGE
-========================= */
+/* ==============================
+   EMPTY / ERROR
+============================== */
 
-.message{
+.empty{
+  padding:55px 20px;
 
+  background:#fff;
+
+  border:1px solid #e8e9ec;
+  border-radius:20px;
+
+  text-align:center;
+}
+
+.emptyIcon{
+  font-size:33px;
+}
+
+.emptyTitle{
+  margin-top:12px;
+
+  font-size:16px;
+  font-weight:850;
+}
+
+.emptyText{
+  margin-top:6px;
+
+  font-size:12px;
+  color:#858b93;
+}
+
+
+/* ==============================
+   TOAST
+============================== */
+
+.toast{
   position:fixed;
 
   left:50%;
+  bottom:24px;
 
-  bottom:20px;
+  z-index:1000;
 
-  transform:
-    translate(-50%,20px);
+  min-width:180px;
+
+  max-width:calc(100% - 30px);
+
+  padding:13px 18px;
+
+  border-radius:13px;
 
   background:#111827;
-
   color:#fff;
 
-  padding:12px 18px;
-
-  border-radius:12px;
+  text-align:center;
 
   font-size:12px;
-
-  font-weight:700;
+  font-weight:750;
 
   opacity:0;
 
   pointer-events:none;
 
-  transition:.25s;
+  transform:
+    translate(-50%,20px);
 
-  z-index:100;
-
+  transition:.22s ease;
 }
 
-
-.message.show{
-
+.toast.show{
   opacity:1;
 
   transform:
     translate(-50%,0);
-
 }
 
 
-/* =========================
+/* ==============================
    MOBILE
-========================= */
+============================== */
 
 @media(max-width:600px){
 
   .header{
-
-    padding:0 16px;
-
+    height:64px;
+    padding:0 15px;
   }
 
+  .brand{
+    font-size:20px;
+  }
 
   .container{
-
     padding:
       21px 13px
-      35px;
-
+      40px;
   }
-
 
   .pageTitle{
-
     font-size:22px;
-
   }
-
 
   .summary{
-
-    grid-template-columns:
-      repeat(3,1fr);
-
     gap:7px;
-
+    margin-top:22px;
   }
-
 
   .summaryCard{
-
-    padding:12px;
-
+    min-height:90px;
+    padding:13px;
+    border-radius:16px;
   }
 
+  .summaryLabel{
+    font-size:10px;
+  }
 
   .summaryValue{
-
-    font-size:18px;
-
+    font-size:20px;
   }
 
+  .section{
+    margin-top:27px;
+  }
 
   .orderCard{
-
-    padding:15px;
-
+    padding:16px;
+    border-radius:17px;
   }
 
-
   .actions{
-
     gap:8px;
+  }
 
+  .actionButton{
+    height:49px;
+  }
+
+}
+
+
+/* ==============================
+   SMALL MOBILE
+============================== */
+
+@media(max-width:380px){
+
+  .summaryCard{
+    padding:10px;
+  }
+
+  .summaryValue{
+    font-size:18px;
   }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<!-- ============================
+     HEADER
+============================ -->
 
 <header class="header">
 
@@ -656,17 +568,19 @@ body{
 
 
 
+<!-- ============================
+     MAIN
+============================ -->
+
 <main class="container">
 
-
-  <div class="pageTitle">
+  <h1 class="pageTitle">
     Payment confirmations
-  </div>
+  </h1>
 
   <div class="pageSub">
     Review customer payments and confirm orders.
   </div>
-
 
 
   <!-- SUMMARY -->
@@ -721,7 +635,7 @@ body{
 
 
 
-  <!-- ORDERS -->
+  <!-- PAYMENT REQUESTS -->
 
   <section class="section">
 
@@ -731,9 +645,11 @@ body{
         Payment requests
       </div>
 
+
       <button
         class="refreshButton"
-        onclick="loadPayments()">
+        id="refreshButton"
+        onclick="manualRefresh()">
 
         ↻ Refresh
 
@@ -746,9 +662,14 @@ body{
       class="orders"
       id="orders">
 
-      <div class="loading">
+      <!--
+        Loader only shown FIRST TIME.
+        Auto refresh will NOT show this again.
+      -->
 
-        <div class="smallLoader"></div>
+      <div class="initialLoading">
+
+        <div class="loader"></div>
 
         Loading payments...
 
@@ -758,53 +679,54 @@ body{
 
   </section>
 
-
 </main>
 
 
 
+<!-- TOAST -->
+
 <div
-  class="message"
-  id="message">
+  class="toast"
+  id="toast">
 </div>
 
 
 
 <script>
 
-/* =====================================
+/* =========================================
+   VARIABLES
+========================================= */
+
+let firstLoad = true;
+
+let currentlyLoading = false;
+
+let lastPaymentsJSON = "";
+
+
+/* =========================================
    LOAD PAYMENTS
-===================================== */
+========================================= */
 
-async function loadPayments(){
+async function loadPayments(
+  forceRender = false
+){
 
-  const orders =
-    document.getElementById(
-      "orders"
-    );
+  /*
+    Prevent multiple API requests
+    at the same time.
+  */
+
+  if(currentlyLoading){
+    return;
+  }
 
 
-  orders.innerHTML = `
-
-    <div class="loading">
-
-      <div class="smallLoader"></div>
-
-      Loading payments...
-
-    </div>
-
-  `;
+  currentlyLoading = true;
 
 
   try{
-
-    /*
-      Next server.js endpoint:
-      GET /api/admin/payments
-
-      will return the orders.
-    */
 
     const response =
       await fetch(
@@ -832,48 +754,142 @@ async function loadPayments(){
     }
 
 
-    renderPayments(
-      result.payments || []
-    );
+    const payments =
+      Array.isArray(
+        result.payments
+      )
+      ?
+      result.payments
+      :
+      [];
+
+
+    /*
+      Compare old data with new data.
+
+      If NOTHING changed,
+      we do NOT touch the HTML.
+
+      So no blinking / loading.
+    */
+
+    const newJSON =
+      JSON.stringify(
+        payments
+      );
+
+
+    if(
+      firstLoad ||
+      forceRender ||
+      newJSON !== lastPaymentsJSON
+    ){
+
+      renderPayments(
+        payments
+      );
+
+
+      lastPaymentsJSON =
+        newJSON;
+
+    }
+
+
+    firstLoad = false;
 
 
   }
 
   catch(error){
 
-    console.error(error);
+    console.error(
+      "Load payments error:",
+      error
+    );
 
-    orders.innerHTML = `
 
-      <div class="empty">
+    /*
+      Error page only on FIRST load.
 
-        <div class="emptyIcon">
-          ⚠️
+      If auto refresh later fails,
+      existing payment cards remain visible.
+    */
+
+    if(firstLoad){
+
+      document.getElementById(
+        "orders"
+      ).innerHTML = `
+
+        <div class="empty">
+
+          <div class="emptyIcon">
+            ⚠️
+          </div>
+
+          <div class="emptyTitle">
+            Unable to load payments
+          </div>
+
+          <div class="emptyText">
+            ${escapeHTML(
+              error.message
+            )}
+          </div>
+
         </div>
 
-        <div class="emptyTitle">
-          Unable to load payments
-        </div>
+      `;
 
-        <div class="emptyText">
-          ${escapeHTML(
-            error.message
-          )}
-        </div>
+    }
 
-      </div>
 
-    `;
+  }
+
+  finally{
+
+    currentlyLoading = false;
 
   }
 
 }
 
 
+/* =========================================
+   MANUAL REFRESH
+========================================= */
 
-/* =====================================
-   RENDER
-===================================== */
+async function manualRefresh(){
+
+  const button =
+    document.getElementById(
+      "refreshButton"
+    );
+
+
+  button.disabled = true;
+
+  button.textContent =
+    "Refreshing...";
+
+
+  await loadPayments(
+    true
+  );
+
+
+  button.disabled = false;
+
+  button.textContent =
+    "↻ Refresh";
+
+}
+
+
+/* =========================================
+   RENDER PAYMENTS
+========================================= */
 
 function renderPayments(
   payments
@@ -884,6 +900,10 @@ function renderPayments(
       "orders"
     );
 
+
+  /*
+    COUNTS
+  */
 
   let pending = 0;
 
@@ -897,26 +917,38 @@ function renderPayments(
 
       const status =
         String(
-          payment.status || ""
-        ).toUpperCase();
+          payment.status ||
+          "PENDING"
+        )
+        .toUpperCase();
 
 
-      if(status === "PENDING"){
+      if(
+        status === "PENDING"
+      ){
+
         pending++;
+
       }
+
 
       if(
         status === "ACCEPTED" ||
         status === "SUCCESS"
       ){
+
         accepted++;
+
       }
+
 
       if(
         status === "REJECTED" ||
         status === "FAILED"
       ){
+
         rejected++;
+
       }
 
     }
@@ -941,7 +973,14 @@ function renderPayments(
     rejected;
 
 
-  if(!payments.length){
+
+  /*
+    EMPTY
+  */
+
+  if(
+    payments.length === 0
+  ){
 
     orders.innerHTML = `
 
@@ -956,7 +995,8 @@ function renderPayments(
         </div>
 
         <div class="emptyText">
-          New customer payments will appear here.
+          New customer payments will
+          automatically appear here.
         </div>
 
       </div>
@@ -968,14 +1008,77 @@ function renderPayments(
   }
 
 
+
+  /*
+    SORT
+
+    Pending first.
+    Newest ID first.
+  */
+
+  const sorted =
+    [...payments]
+    .sort(
+      (a,b) => {
+
+        const aStatus =
+          String(
+            a.status || ""
+          ).toUpperCase();
+
+        const bStatus =
+          String(
+            b.status || ""
+          ).toUpperCase();
+
+
+        if(
+          aStatus === "PENDING" &&
+          bStatus !== "PENDING"
+        ){
+          return -1;
+        }
+
+
+        if(
+          bStatus === "PENDING" &&
+          aStatus !== "PENDING"
+        ){
+          return 1;
+        }
+
+
+        return (
+          Number(b.id || 0) -
+          Number(a.id || 0)
+        );
+
+      }
+    );
+
+
+
+  /*
+    CREATE CARDS
+  */
+
   orders.innerHTML =
-    payments.map(
+    sorted.map(
       payment => {
+
+        const orderId =
+          String(
+            payment.order_id ||
+            ""
+          );
+
 
         const status =
           String(
-            payment.status || "PENDING"
-          ).toUpperCase();
+            payment.status ||
+            "PENDING"
+          )
+          .toUpperCase();
 
 
         let statusClass =
@@ -1020,40 +1123,54 @@ function renderPayments(
 
         return `
 
-          <div class="orderCard">
+          <article
+            class="orderCard"
+            data-order-id="
+              ${escapeHTML(orderId)}
+            "
+          >
 
             <div class="orderTop">
 
               <div>
 
                 <div class="orderId">
+
                   ${escapeHTML(
-                    payment.order_id
+                    orderId
                   )}
+
                 </div>
 
                 <div class="orderTime">
-                  ${formatDate(
-                    payment.created_at
-                  )}
+
+                  Payment request
+
                 </div>
 
               </div>
 
+
               <div class="amount">
+
                 ₹${formatAmount(
                   payment.amount
                 )}
+
               </div>
 
             </div>
 
 
-            <div class="
-              status
-              ${statusClass}
-            ">
+            <div
+              class="
+                status
+                ${statusClass}
+              "
+            >
+
               ${statusText}
+
             </div>
 
 
@@ -1064,6 +1181,7 @@ function renderPayments(
 
               <div class="actions">
 
+
                 <button
                   class="
                     actionButton
@@ -1071,10 +1189,12 @@ function renderPayments(
                   "
                   onclick="
                     updatePayment(
-                      '${safeJS(payment.order_id)}',
-                      'ACCEPTED'
+                      '${safeJS(orderId)}',
+                      'ACCEPTED',
+                      this
                     )
-                  ">
+                  "
+                >
 
                   ✓ Accept
 
@@ -1088,14 +1208,17 @@ function renderPayments(
                   "
                   onclick="
                     updatePayment(
-                      '${safeJS(payment.order_id)}',
-                      'REJECTED'
+                      '${safeJS(orderId)}',
+                      'REJECTED',
+                      this
                     )
-                  ">
+                  "
+                >
 
                   ✕ Reject
 
                 </button>
+
 
               </div>
 
@@ -1104,37 +1227,38 @@ function renderPayments(
               ""
             }
 
-          </div>
+          </article>
 
         `;
 
       }
-    ).join("");
+    )
+    .join("");
 
 }
 
 
-
-/* =====================================
-   UPDATE PAYMENT
-===================================== */
+/* =========================================
+   ACCEPT / REJECT
+========================================= */
 
 async function updatePayment(
   orderId,
-  status
+  status,
+  clickedButton
 ){
 
-  const confirmText =
+  const message =
     status === "ACCEPTED"
     ?
     "Confirm this payment as ACCEPTED?"
     :
-    "Mark this payment as REJECTED?";
+    "Reject this payment?";
 
 
   if(
     !window.confirm(
-      confirmText
+      message
     )
   ){
 
@@ -1143,12 +1267,50 @@ async function updatePayment(
   }
 
 
-  try{
+  /*
+    Disable both buttons
+    inside this card.
+  */
 
-    /*
-      Next server.js endpoint:
-      POST /api/admin/payment/status
-    */
+  const card =
+    clickedButton.closest(
+      ".orderCard"
+    );
+
+
+  const buttons =
+    card
+      ?
+      card.querySelectorAll(
+        ".actionButton"
+      )
+      :
+      [];
+
+
+  buttons.forEach(
+    button => {
+
+      button.disabled =
+        true;
+
+    }
+  );
+
+
+  const oldText =
+    clickedButton.textContent;
+
+
+  clickedButton.textContent =
+    status === "ACCEPTED"
+    ?
+    "Accepting..."
+    :
+    "Rejecting...";
+
+
+  try{
 
     const response =
       await fetch(
@@ -1194,84 +1356,144 @@ async function updatePayment(
     }
 
 
-    showMessage(
+    showToast(
       status === "ACCEPTED"
       ?
-      "Payment accepted"
+      "✓ Payment accepted"
       :
       "Payment rejected"
     );
 
 
-    loadPayments();
+    /*
+      Silent refresh.
+      No loader.
+    */
+
+    await loadPayments(
+      true
+    );
 
 
   }
 
   catch(error){
 
-    console.error(error);
+    console.error(
+      "Update payment:",
+      error
+    );
 
-    showMessage(
+
+    showToast(
       error.message ||
       "Unable to update payment"
     );
+
+
+    buttons.forEach(
+      button => {
+
+        button.disabled =
+          false;
+
+      }
+    );
+
+
+    clickedButton.textContent =
+      oldText;
 
   }
 
 }
 
 
+/* =========================================
+   AUTO REFRESH
 
-/* =====================================
-   MESSAGE
-===================================== */
+   Silent background refresh.
+   NO loader.
+   NO page blinking.
+========================================= */
 
-function showMessage(
+setInterval(
+  function(){
+
+    loadPayments(
+      false
+    );
+
+  },
+  5000
+);
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+let toastTimer = null;
+
+
+function showToast(
   text
 ){
 
-  const message =
+  const toast =
     document.getElementById(
-      "message"
+      "toast"
     );
 
 
-  message.textContent =
+  toast.textContent =
     text;
 
 
-  message.classList.add(
+  toast.classList.add(
     "show"
   );
 
 
-  setTimeout(
-    () => {
+  if(toastTimer){
 
-      message.classList.remove(
-        "show"
-      );
+    clearTimeout(
+      toastTimer
+    );
 
-    },
-    2500
-  );
+  }
+
+
+  toastTimer =
+    setTimeout(
+      function(){
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },
+      2300
+    );
 
 }
 
 
-
-/* =====================================
-   FORMAT
-===================================== */
+/* =========================================
+   FORMAT AMOUNT
+========================================= */
 
 function formatAmount(
   value
 ){
 
-  return Number(
-    value || 0
-  ).toLocaleString(
+  const number =
+    Number(
+      value || 0
+    );
+
+
+  return number.toLocaleString(
     "en-IN",
     {
       maximumFractionDigits:2
@@ -1281,48 +1503,9 @@ function formatAmount(
 }
 
 
-function formatDate(
-  value
-){
-
-  if(!value){
-    return "Date unavailable";
-  }
-
-
-  const date =
-    new Date(value);
-
-
-  if(
-    Number.isNaN(
-      date.getTime()
-    )
-  ){
-
-    return "Date unavailable";
-
-  }
-
-
-  return date.toLocaleString(
-    "en-IN",
-    {
-      day:"2-digit",
-      month:"short",
-      year:"numeric",
-      hour:"2-digit",
-      minute:"2-digit"
-    }
-  );
-
-}
-
-
-
-/* =====================================
-   SAFE HTML
-===================================== */
+/* =========================================
+   ESCAPE HTML
+========================================= */
 
 function escapeHTML(
   value
@@ -1360,6 +1543,10 @@ function escapeHTML(
 }
 
 
+/* =========================================
+   SAFE JS STRING
+========================================= */
+
 function safeJS(
   value
 ){
@@ -1367,18 +1554,22 @@ function safeJS(
   return String(
     value ?? ""
   )
+
   .replaceAll(
     "\\",
     "\\\\"
   )
+
   .replaceAll(
     "'",
     "\\'"
   )
+
   .replaceAll(
     "\n",
     "\\n"
   )
+
   .replaceAll(
     "\r",
     "\\r"
@@ -1387,17 +1578,11 @@ function safeJS(
 }
 
 
-/* =====================================
-   AUTO REFRESH
-===================================== */
+/* =========================================
+   FIRST LOAD
+========================================= */
 
 loadPayments();
-
-
-setInterval(
-  loadPayments,
-  5000
-);
 
 </script>
 
