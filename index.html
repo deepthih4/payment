@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Payment</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --text:#111827;
+  --muted:#6b7280;
+  --line:#edf0f3;
+  --bg:#f5f6f8;
+  --green:#128c5e;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.paymentPage{
+  width:100%;
+  max-width:480px;
+  min-height:100vh;
+  margin:auto;
+  background:#fff;
+}
+
+/* HEADER */
+
+.header{
+  height:62px;
+  display:flex;
+  align-items:center;
+  padding:0 17px;
+  border-bottom:1px solid var(--line);
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.back{
+  width:38px;
+  height:38px;
+  border:0;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  font-size:28px;
+  cursor:pointer;
+  color:#111;
+}
+
+.headerTitle{
+  font-size:17px;
+  font-weight:700;
+  margin-left:3px;
+}
+
+/* AMOUNT */
+
+.amountSection{
+  padding:30px 20px 27px;
+  text-align:center;
+}
+
+.payLabel{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+
+.amount{
+  font-size:39px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-1.2px;
+}
+
+.secureText{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  color:#7b818a;
+  font-size:12px;
+}
+
+/* DIVIDER */
+
+.sectionDivider{
+  height:8px;
+  background:var(--bg);
+}
+
+/* METHODS */
+
+.methods{
+  padding:23px 17px;
+}
+
+.methodHeading{
+  font-size:15px;
+  font-weight:750;
+  margin-bottom:15px;
+}
+
+.paymentButton{
+  width:100%;
+  min-height:72px;
+  padding:12px 14px;
+  background:#fff;
+  border:1px solid #e7e9ed;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  text-align:left;
+  cursor:pointer;
+  margin-bottom:11px;
+  transition:
+    transform .12s ease,
+    background .12s ease;
+}
+
+.paymentButton:active{
+  transform:scale(.985);
+  background:#fafafa;
+}
+
+/* LOGOS */
+
+.appLogo{
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.phonePeLogo{
+  background:#5f259f;
+  color:white;
+  font-size:23px;
+  font-weight:800;
+}
+
+.paytmLogo{
+  background:#f1f9ff;
+  font-size:13px;
+  font-weight:800;
+}
+
+.paytmBlue{
+  color:#00a9e8;
+}
+
+.paytmDark{
+  color:#123d73;
+}
+
+/* METHOD TEXT */
+
+.methodInfo{
+  min-width:0;
+  flex:1;
+  margin-left:13px;
+}
+
+.methodName{
+  font-size:15.5px;
+  font-weight:700;
+}
+
+.methodDescription{
+  font-size:12px;
+  color:#8a9099;
+  margin-top:4px;
+}
+
+.arrow{
+  margin-left:10px;
+  color:#a0a5ad;
+  font-size:23px;
+}
+
+/* INFO */
+
+.paymentInfo{
+  margin-top:17px;
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  background:#f8f9fa;
+  border-radius:13px;
+  padding:13px;
+}
+
+.infoIcon{
+  font-size:14px;
+  line-height:18px;
+}
+
+.infoText{
+  font-size:11.5px;
+  line-height:1.5;
+  color:#737983;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  color:#a0a5ad;
+  font-size:11px;
+  padding:12px 20px 30px;
+}
+
+/* STATUS SHEET */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  z-index:9999;
+}
+
+.sheet{
+  width:100%;
+  max-width:480px;
+  background:#fff;
+  border-radius:25px 25px 0 0;
+  padding:12px 22px 30px;
+  text-align:center;
+  animation:sheetUp .25s ease;
+}
+
+@keyframes sheetUp{
+  from{
+    transform:translateY(100%);
+  }
+  to{
+    transform:translateY(0);
+  }
+}
+
+.handle{
+  width:38px;
+  height:4px;
+  border-radius:20px;
+  background:#dedede;
+  margin:0 auto 28px;
+}
+
+/* LOADER */
+
+.loader{
+  width:52px;
+  height:52px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  border:4px solid #edf0f2;
+  border-top-color:#111827;
+  animation:spin .75s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.statusCircle{
+  width:68px;
+  height:68px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  font-weight:700;
+}
+
+.success{
+  background:#e9f9f0;
+  color:#13955f;
+}
+
+.failed{
+  background:#fff0f0;
+  color:#e13b3b;
+}
+
+.statusTitle{
+  font-size:21px;
+  font-weight:800;
+}
+
+.statusAmount{
+  margin-top:7px;
+  font-size:17px;
+  font-weight:700;
+}
+
+.statusSub{
+  margin-top:7px;
+  color:#858b94;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.actionButton{
+  width:100%;
+  height:52px;
+  margin-top:25px;
+  border:0;
+  border-radius:14px;
+  background:#111827;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* INVALID */
+
+.invalid{
+  padding:70px 25px;
+  text-align:center;
+}
+
+.invalid h2{
+  font-size:20px;
+}
+
+.invalid p{
+  margin-top:8px;
+  color:#777;
+  font-size:13px;
+}
+
+@media(min-width:600px){
+
+  body{
+    display:flex;
+    justify-content:center;
+  }
+
+  .paymentPage{
+    box-shadow:0 0 40px rgba(0,0,0,.06);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="paymentPage">
+
+  <header class="header">
+
+    <button
+      class="back"
+      onclick="history.back()">
+      ‹
+    </button>
+
+    <div class="headerTitle">
+      Complete payment
+    </div>
+
+  </header>
+
+
+  <main id="mainContent">
+
+    <section class="amountSection">
+
+      <div class="payLabel">
+        Amount to pay
+      </div>
+
+      <div
+        class="amount"
+        id="amountText">
+        ₹0
+      </div>
+
+      <div class="secureText">
+        🔒 Secure UPI payment
+      </div>
+
+    </section>
+
+
+    <div class="sectionDivider"></div>
+
+
+    <section class="methods">
+
+      <div class="methodHeading">
+        Choose payment app
+      </div>
+
+
+      <!-- PHONEPE -->
+
+      <button
+        class="paymentButton"
+        onclick="startPayment('phonepe')">
+
+        <div class="appLogo phonePeLogo">
+          P
+        </div>
+
+        <div class="methodInfo">
+
+          <div class="methodName">
+            PhonePe
+          </div>
+
+          <div class="methodDescription">
+            Pay using PhonePe UPI
+          </div>
+
+        </div>
+
+        <div class="arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <!-- PAYTM -->
+
+      <button
+        class="paymentButton"
+        onclick="startPayment('paytm')">
+
+        <div class="appLogo paytmLogo">
+
+          <span class="paytmDark">
+            Pay
+          </span>
+
+          <span class="paytmBlue">
+            tm
+          </span>
+
+        </div>
+
+        <div class="methodInfo">
+
+          <div class="methodName">
+            Paytm
+          </div>
+
+          <div class="methodDescription">
+            Pay using Paytm UPI
+          </div>
+
+        </div>
+
+        <div class="arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <div class="paymentInfo">
+
+        <div class="infoIcon">
+          🛡️
+        </div>
+
+        <div class="infoText">
+          After completing your payment, return here.
+          Your transaction will be verified before
+          your order is confirmed.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <div class="footer">
+      Payments processed securely through UPI
+    </div>
+
+  </main>
+
+</div>
+
+
+<!-- PAYMENT STATUS -->
+
+<div class="overlay" id="statusOverlay">
+
+  <div
+    class="sheet"
+    id="statusSheet">
+  </div>
+
+</div>
+
+
+<script>
+
+/* ======================================
+   GET AMOUNT FROM CHECKOUT
+
+   Example:
+   payment.html?amount=847
+====================================== */
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const rawAmount =
+  params.get("amount");
+
+const PAYMENT_AMOUNT =
+  Number(rawAmount);
+
+
+/* ======================================
+   VALIDATE AMOUNT
+====================================== */
+
+if(
+  !Number.isFinite(PAYMENT_AMOUNT) ||
+  PAYMENT_AMOUNT <= 0
+){
+
+  document.getElementById(
+    "mainContent"
+  ).innerHTML = `
+
+    <div class="invalid">
+
+      <h2>
+        Payment amount unavailable
+      </h2>
+
+      <p>
+        Please return to checkout and try again.
+      </p>
+
+    </div>
+  `;
+
+}
+
+else{
+
+  document.getElementById(
+    "amountText"
+  ).textContent =
+    formatMoney(PAYMENT_AMOUNT);
+
+}
+
+
+/* ======================================
+   MONEY FORMAT
+====================================== */
+
+function formatMoney(value){
+
+  return new Intl.NumberFormat(
+    "en-IN",
+    {
+      style:"currency",
+      currency:"INR",
+      minimumFractionDigits:0,
+      maximumFractionDigits:2
+    }
+  ).format(value);
+
+}
+
+
+/* ======================================
+   PAYMENT APP CLICK
+====================================== */
+
+function startPayment(app){
+
+  if(
+    !Number.isFinite(PAYMENT_AMOUNT) ||
+    PAYMENT_AMOUNT <= 0
+  ){
+    return;
+  }
+
+  console.log(
+    "Payment app:",
+    app
+  );
+
+  console.log(
+    "Amount:",
+    PAYMENT_AMOUNT
+  );
+
+
+  /*
+    NEXT STEP:
+
+    Render backend:
+
+    POST /api/payment/create
+
+    {
+      amount: PAYMENT_AMOUNT,
+      app: app
+    }
+
+    Backend nunchi UPI payment
+    URL vastundi.
+
+    Appudu PhonePe / Paytm
+    open chestham.
+  */
+
+
+  showVerifying();
+
+}
+
+
+/* ======================================
+   VERIFYING
+====================================== */
+
+function showVerifying(){
+
+  const overlay =
+    document.getElementById(
+      "statusOverlay"
+    );
+
+  const sheet =
+    document.getElementById(
+      "statusSheet"
+    );
+
+  overlay.style.display = "flex";
+
+  sheet.innerHTML = `
+
+    <div class="handle"></div>
+
+    <div class="loader"></div>
+
+    <div class="statusTitle">
+      Verifying payment
+    </div>
+
+    <div class="statusAmount">
+      ${formatMoney(PAYMENT_AMOUNT)}
+    </div>
+
+    <div class="statusSub">
+      Please wait while we confirm your payment.
+    </div>
+
+  `;
+
+}
+
+
+/* ======================================
+   SUCCESS
+
+   Render SUCCESS vachinappudu
+   showSuccess() call cheyyali.
+====================================== */
+
+function showSuccess(){
+
+  const overlay =
+    document.getElementById(
+      "statusOverlay"
+    );
+
+  const sheet =
+    document.getElementById(
+      "statusSheet"
+    );
+
+  overlay.style.display = "flex";
+
+  sheet.innerHTML = `
+
+    <div class="handle"></div>
+
+    <div class="statusCircle success">
+      ✓
+    </div>
+
+    <div class="statusTitle">
+      Payment successful
+    </div>
+
+    <div class="statusAmount">
+      ${formatMoney(PAYMENT_AMOUNT)}
+    </div>
+
+    <div class="statusSub">
+      Your payment has been verified successfully.
+    </div>
+
+    <button
+      class="actionButton"
+      onclick="paymentDone()">
+      Done
+    </button>
+
+  `;
+
+}
+
+
+/* ======================================
+   FAILED
+
+   Render FAILED vachinappudu
+   showFailed() call cheyyali.
+====================================== */
+
+function showFailed(){
+
+  const overlay =
+    document.getElementById(
+      "statusOverlay"
+    );
+
+  const sheet =
+    document.getElementById(
+      "statusSheet"
+    );
+
+  overlay.style.display = "flex";
+
+  sheet.innerHTML = `
+
+    <div class="handle"></div>
+
+    <div class="statusCircle failed">
+      ×
+    </div>
+
+    <div class="statusTitle">
+      Payment failed
+    </div>
+
+    <div class="statusAmount">
+      ${formatMoney(PAYMENT_AMOUNT)}
+    </div>
+
+    <div class="statusSub">
+      Your payment could not be completed.
+      Please try again.
+    </div>
+
+    <button
+      class="actionButton"
+      onclick="closeStatus()">
+      Try again
+    </button>
+
+  `;
+
+}
+
+
+/* ======================================
+   CLOSE
+====================================== */
+
+function closeStatus(){
+
+  document.getElementById(
+    "statusOverlay"
+  ).style.display = "none";
+
+}
+
+
+/* ======================================
+   PAYMENT DONE
+====================================== */
+
+function paymentDone(){
+
+  /*
+    Later:
+    order-success.html ki redirect
+    cheyyachu.
+  */
+
+  closeStatus();
+
+}
+
+</script>
+
+</body>
+</html>
